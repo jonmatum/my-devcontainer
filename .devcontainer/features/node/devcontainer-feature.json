@@ -1,0 +1,20 @@
+{
+    "id": "node",
+    "version": "1.0.0",
+    "name": "Node.js with nvm",
+    "description": "Installs Node.js using nvm (Node Version Manager). Supports any valid Node.js version string including 'lts/*', 'node', or a specific version like '20.11.1'.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "lts/*",
+            "description": "Node.js version to install (e.g., '20.11.1', 'lts/*', 'node')",
+            "enum": [
+                "node",
+                "lts/*",
+                "20.11.1",
+                "18.18.0",
+                "16.20.2"
+            ]
+        }
+    }
+}

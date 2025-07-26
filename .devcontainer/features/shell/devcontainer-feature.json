@@ -1,0 +1,46 @@
+{
+    "id": "shell",
+    "version": "1.0.0",
+    "name": "Shell Environment",
+    "description": "Configurable shell with optional Oh My Zsh, Powerlevel10k, autosuggestions, and more.",
+    "options": {
+        "installZsh": {
+            "type": "boolean",
+            "default": true,
+            "description": "Install Zsh and set as default shell"
+        },
+        "ohMyZsh": {
+            "type": "boolean",
+            "default": true,
+            "description": "Install Oh My Zsh"
+        },
+        "powerlevel10k": {
+            "type": "boolean",
+            "default": true,
+            "description": "Install Powerlevel10k theme"
+        },
+        "autosuggestions": {
+            "type": "boolean",
+            "default": true,
+            "description": "Enable zsh-autosuggestions"
+        },
+        "syntaxHighlighting": {
+            "type": "boolean",
+            "default": true,
+            "description": "Enable zsh-syntax-highlighting"
+        },
+        "autosuggestHighlight": {
+            "type": "string",
+            "default": "fg=8",
+            "description": "Style for autosuggestion highlighting (ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE)"
+        },
+        "opinionated": {
+            "type": "boolean",
+            "default": false,
+            "description": "Apply full opinionated zsh configuration from assets"
+        }
+    },
+    "install": {
+        "script": "install.sh"
+    }
+}

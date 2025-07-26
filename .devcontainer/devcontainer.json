@@ -1,0 +1,81 @@
+{
+    "name": "Devcontainer Developer Workspace",
+    "dockerComposeFile": [
+        "../docker-compose.yml",
+        "docker-compose.override.yml"
+    ],
+    "service": "devcontainer",
+    "workspaceFolder": "/workspace",
+    "overrideCommand": false,
+    "shutdownAction": "none",
+    "mounts": [
+        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+    ],
+    "features": {
+        "./features/shell": {
+            "installZsh": true,
+            "ohMyZsh": true,
+            "powerlevel10k": true,
+            "autosuggestions": true,
+            "syntaxHighlighting": true,
+            "autosuggestHighlight": "fg=yellow",
+            "opinionated": true
+        },
+        "./features/aws": {
+            "version": "2"
+        },
+        "./features/terraform": {},
+        "./features/node": {
+            "version": "20.11.1"
+        },
+        "./features/python": {
+            "version": "3.11.9",
+            "pipenv": true
+        },
+        "./features/opentofu": {
+            "version": "1.6.2"
+        },
+        "./features/precommit": {
+            "global": true
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "hashicorp.terraform",
+                "amazonwebservices.aws-toolkit-vscode",
+                "amazonwebservices.amazon-q-vscode",
+                "redhat.vscode-yaml",
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-python.black-formatter",
+                "ms-python.isort",
+                "ms-toolsai.jupyter",
+                "ms-python.debugpy",
+                "dbaeumer.vscode-eslint",
+                "esbenp.prettier-vscode",
+                "bradlc.vscode-tailwindcss",
+                "ms-azuretools.vscode-docker",
+                "timonwong.shellcheck",
+                "foxundermoon.shell-format",
+                "eamodio.gitlens",
+                "donjayamanne.githistory",
+                "ms-vsliveshare.vsliveshare",
+                "github.vscode-github-actions",
+                "bierner.markdown-mermaid",
+                "streetsidesoftware.code-spell-checker",
+                "ms-vscode-remote.remote-containers",
+                "ms-vscode-remote.remote-ssh",
+                "ms-vscode-remote.remote-ssh-edit",
+                "ms-vscode-remote.remote-wsl",
+                "ms-vscode-remote.vscode-remote-extensionpack",
+                "visualstudioexptteam.vscodeintellicode",
+                "naumovs.color-highlight",
+                "ms-vscode.makefile-tools"
+            ]
+        }
+    },
+    "forwardPorts": [3005,3006,3007,3008],
+    "onCreateCommand": "sleep 5",
+    "postCreateCommand": "sudo chown root:docker /var/run/docker.sock && ./.devcontainer/scripts/verify-install.sh ./.devcontainer/devcontainer.json"
+}

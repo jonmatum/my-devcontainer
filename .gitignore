@@ -1,0 +1,84 @@
+# ------------------------------------------------------------------------------
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Virtual environments
+backend/.venv/
+backend/.mypy_cache/
+backend/.pytest_cache/
+backend/Pipfile.lock
+
+# ------------------------------------------------------------------------------
+# Node.js artifacts
+frontend/app/node_modules/
+frontend/app/dist/
+frontend/app/.vite/
+
+# ------------------------------------------------------------------------------
+# Docker / Container data
+*.pid
+*.log
+data/
+**/data/
+.vscode/
+.vscode-server/
+.vscode-remote.json
+.devcontainer/scripts/__pycache__/
+
+# ------------------------------------------------------------------------------
+# Secrets and Credentials (IMPORTANT)
+**/.env
+**/.env.*
+.env
+.env.*
+.aws/
+.aws/credentials
+.aws/config
+.ssh/
+*.pem
+*.key
+*.crt
+*.cert
+*.p12
+*.pfx
+
+# ------------------------------------------------------------------------------
+# Terraform state
+*.tfstate
+*.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+
+# ------------------------------------------------------------------------------
+# Visual Studio Code settings
+.vscode/
+*.code-workspace
+
+# ------------------------------------------------------------------------------
+# Operating System files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# ------------------------------------------------------------------------------
+# Editor / Tooling temp files
+*.bak
+*.swp
+*.swo
+*.tmp
+*.orig
+*~
+.idea/
+*.iml
+
+# ------------------------------------------------------------------------------
+# Backup or auto-save files
+*.autosave
+*.save
+*.backup

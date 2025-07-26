@@ -1,0 +1,19 @@
+{
+    "id": "aws",
+    "version": "1.0.0",
+    "name": "AWS CLI",
+    "description": "Installs AWS CLI v2",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "2",
+            "description": "Specify the AWS CLI major version to install (currently only v2 is supported)"
+        }
+    },
+    "install": {
+        "script": "./install.sh",
+        "permissions": {
+            "user": "root"
+        }
+    }
+}

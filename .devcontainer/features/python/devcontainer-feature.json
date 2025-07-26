@@ -1,0 +1,21 @@
+{
+    "id": "python",
+    "version": "1.0.0",
+    "name": "Python via pyenv",
+    "description": "Installs Python using pyenv with venv support.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "3.11.9",
+            "description": "Python version to install"
+        },
+        "pipenv": {
+            "type": "boolean",
+            "default": false,
+            "description": "Also install pipenv for managing Pipfiles"
+        }
+    },
+    "install": {
+        "script": "install.sh"
+    }
+}

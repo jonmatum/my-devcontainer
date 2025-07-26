@@ -1,0 +1,79 @@
+services:
+  devcontainer:
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    networks:
+      - dev-network
+    volumes:
+      - .:/workspace:cached
+      - /var/run/docker.sock:/var/run/docker.sock
+    healthcheck:
+      disable: true
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      MODULE_NAME: app.main
+      VARIABLE_NAME: app
+    ports:
+      - "${BACKEND_PORT}:8000"
+    volumes:
+      - ./backend:/app:cached
+    networks:
+      - dev-network
+    healthcheck:
+      disable: true
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "${FRONTEND_PORT}:3000"
+    volumes:
+      - ./frontend:/app:cached
+    networks:
+      - dev-network
+    healthcheck:
+      disable: true
+    restart: unless-stopped
+
+  dynamodb-local:
+    image: amazon/dynamodb-local
+    command:
+      - "-jar"
+      - "DynamoDBLocal.jar"
+      - "-sharedDb"
+      - "-dbPath"
+      - "/home/dynamodblocal/data"
+      - "-port"
+      - "${DYNAMODB_PORT}"
+    ports:
+      - "${DYNAMODB_PORT}:${DYNAMODB_PORT}"
+    volumes:
+      - ./data:/home/dynamodblocal/data
+    networks:
+      - dev-network
+    healthcheck:
+      disable: true
+    restart: unless-stopped
+
+  dynamodb-admin:
+    image: aaronshaf/dynamodb-admin
+    environment:
+      - DYNAMO_ENDPOINT=http://dynamodb-local:${DYNAMODB_PORT}
+    ports:
+      - "${ADMIN_PORT}:8001"
+    networks:
+      - dev-network
+    depends_on:
+      - dynamodb-local
+    restart: unless-stopped
+
+networks:
+  dev-network:
+    driver: bridge

@@ -1,0 +1,16 @@
+{
+    "id": "precommit",
+    "version": "1.0.0",
+    "name": "Pre-commit",
+    "description": "Installs pre-commit and allows for optional global config support.",
+    "options": {
+        "global": {
+            "type": "boolean",
+            "default": true,
+            "description": "Install pre-commit globally for the user"
+        }
+    },
+    "install": {
+        "script": "install.sh"
+    }
+}

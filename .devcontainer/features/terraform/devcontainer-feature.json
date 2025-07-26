@@ -1,0 +1,16 @@
+{
+    "id": "terraform",
+    "version": "1.0.0",
+    "name": "Terraform",
+    "description": "Installs Terraform using tfswitch (local feature).",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "1.6.5",
+            "description": "Terraform version to install (e.g., 1.6.5). Will use this unless .tfswitchrc is found."
+        }
+    },
+    "install": {
+        "script": "install.sh"
+    }
+}

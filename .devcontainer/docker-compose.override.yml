@@ -1,0 +1,19 @@
+services:
+  devcontainer:
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      - .:/workspace:cached
+    networks:
+      - dev-network
+    healthcheck:
+      test: [ "CMD", "bash", "-c", "echo OK" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    restart: unless-stopped
+
+networks:
+  dev-network:
+    driver: bridge
